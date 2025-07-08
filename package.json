@@ -1,0 +1,49 @@
+{
+  "name": "kallem-industries-website",
+  "version": "1.0.0",
+  "description": "A modern, responsive website for Kallem Industries - leading manufacturer of industrial adhesive tapes and solutions",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "dev": "live-server --port=8000",
+    "build": "npm run optimize-images && npm run minify-css && npm run minify-js",
+    "optimize-images": "imagemin assets/images/**/*.{jpg,jpeg,png} --out-dir=assets/images/optimized",
+    "minify-css": "cleancss -o styles.min.css styles.css",
+    "minify-js": "uglifyjs script.js -o script.min.js",
+    "lighthouse": "lighthouse http://localhost:8000 --output=html --output-path=./lighthouse-report.html",
+    "analyze": "npm run build && npm run lighthouse"
+  },
+  "keywords": [
+    "website",
+    "responsive",
+    "html5",
+    "css3",
+    "javascript",
+    "industrial",
+    "tapes",
+    "manufacturing",
+    "adhesive",
+    "packaging"
+  ],
+  "author": "Kallem Industries",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "imagemin-cli": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "clean-css-cli": "^5.6.0",
+    "uglify-js": "^3.17.4",
+    "lighthouse": "^11.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/kallem-industries-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/kallem-industries-website/issues"
+  },
+  "homepage": "https://github.com/yourusername/kallem-industries-website#readme"
+} 
