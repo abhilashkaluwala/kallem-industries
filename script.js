@@ -291,26 +291,19 @@ function initSearch() {
 document.addEventListener('DOMContentLoaded', initSearch);
 
 // Contact form handling
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Basic validation
-            if (validateForm(this)) {
-                // Show success message (in real app, this would send to server)
-                showNotification('Thank you! Your message has been sent successfully.', 'success');
-                this.reset();
-            } else {
-                showNotification('Please fill in all required fields.', 'error');
-            }
-        });
-    }
+document.addEventListener('DOMContentLoaded', function() {
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var subject = document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text;
+      var message = document.getElementById('message').value;
+      var whatsappNumber = '917207987979'; // India country code +91
+      var text = encodeURIComponent('Subject: ' + subject + '\nMessage: ' + message);
+      var whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + text;
+      window.open(whatsappUrl, '_blank');
+    });
+  }
 });
 
 // Show notification function

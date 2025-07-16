@@ -42,10 +42,76 @@ body {
     align-items: center;
 }
 
-.nav-logo h2 {
-    color: #60a5fa;
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.75rem;
+    height: 100%;
+}
+
+.nav-logo-img {
+    height: 44px;
+    width: auto;
+    max-width: 120px;
+    display: block;
+    object-fit: contain;
+    background: transparent !important;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+
+.nav-logo-link:hover .nav-logo-img {
+    box-shadow: 0 4px 16px rgba(59,130,246,0.15);
+}
+
+.nav-logo-text {
+    color: #e2e8f0;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.nav-logo-link:hover .nav-logo-text {
+    color: #e2e8f0;
+}
+
+/* Remove old h2 style */
+.nav-logo h2 { display: none; }
+
+@media (max-width: 768px) {
+    .nav-logo-img {
+        height: 36px;
+        max-width: 80px;
+    }
+    .nav-logo-text {
+        font-size: 1.1rem;
+    }
+    .nav-logo {
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo-img {
+        height: 28px;
+        max-width: 60px;
+    }
+    .nav-logo-text {
+        font-size: 1rem;
+    }
+    .nav-logo {
+        height: 40px;
+    }
 }
 
 .nav-menu {
@@ -100,7 +166,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('../assets/images/home-bg.png');
+    background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), url('../assets/images/home-bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -256,6 +322,7 @@ body {
 }
 
 .feature-card h3 {
+    text-transform: uppercase;
     color: #f1f5f9;
     margin-bottom: 1rem;
     font-size: 1.5rem;
@@ -372,7 +439,7 @@ body {
 .product-image {
     width: 100%;
     height: 200px;
-    background: #475569;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,7 +450,10 @@ body {
 .product-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 12px;
     transition: transform 0.3s ease;
 }
 
@@ -392,6 +462,7 @@ body {
 }
 
 .product-card h3 {
+    text-transform: uppercase;
     color: #f1f5f9;
     padding: 1.5rem 1.5rem 0.5rem;
     font-size: 1.3rem;
@@ -1053,17 +1124,33 @@ body {
 }
 
 .feature-list li {
-    color: #cbd5e1;
-    margin-bottom: 0.8rem;
     display: flex;
     align-items: flex-start;
     gap: 12px;
+    margin-bottom: 0.8rem;
 }
-
 .feature-list li i {
     color: #60a5fa;
     margin-top: 4px;
     flex-shrink: 0;
+}
+.feature-heading {
+    min-width: 180px;
+    max-width: 220px;
+    font-weight: 700;
+    color: #e2e8f0;
+    display: inline-block;
+}
+.feature-desc {
+    color: #cbd5e1;
+    display: inline-block;
+}
+@media (max-width: 600px) {
+    .feature-heading {
+        min-width: 120px;
+        max-width: 150px;
+        font-size: 0.98em;
+    }
 }
 
 .overview-image {
@@ -1409,4 +1496,58 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #60a5fa;
+} 
+
+.contact-map {
+    margin-top: 0.5rem;
+}
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #60a5fa;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: color 0.2s;
+}
+.map-link i {
+    font-size: 1.2rem;
+}
+.map-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+} 
+
+.contact-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+.contact-row:last-child {
+    margin-bottom: 0;
+}
+.contact-row .contact-icon {
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+}
+.contact-row .contact-details h3 {
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    color: #f1f5f9;
+}
+.contact-row .contact-details p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 1rem;
+} 
+
+.contact-info {
+    display: block;
+}
+.contact-item {
+    display: block;
 } 
