@@ -1551,3 +1551,24 @@ html {
 .contact-item {
     display: block;
 } 
+
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-form {
+        width: 100%;
+        min-width: 0;
+        margin: 0 auto;
+    }
+} 
+
+@media (max-width: 768px) {
+    .hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('../assets/images/home-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll; /* Prevents issues with fixed on mobile */
+    }
+  }
